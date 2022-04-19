@@ -1,0 +1,26 @@
+NAME
+	_printf
+
+SYNOPSIS
+
+DESCRIPTION
+	This function produces output according to a format
+	and returns the number of characters printed. The 
+	output is written to stdout. 
+
+CONVERSION SPECIFIERS
+	format is a character string.The following conversion
+	specifiers are handled:
+	c print a single character
+	s print a string of characters
+	% start a formal specification
+	d print a decimal (base 10) 
+	i print an integer
+	u print an unsigned decimal (base 10)
+	o print a number (base 8)
+	x print a number in hexadecimal (base 16)
+	X print a number in hexadecimal (base 16)
+
+AUTHERS
+	Realeboha Motlamelle
+	Reitumetse Ramoeletsi
