@@ -88,4 +88,3 @@ int suich(const char *format, va_list list)
 	}
 	return (charCount);
 }
-
