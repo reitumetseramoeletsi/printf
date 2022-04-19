@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	i = 0;
 
 	if (format == NULL)
-	       return (-1);	
+		return (-1);
 
 	va_start(ap, format);
 	for (i = 0; *(format + i); i++)
@@ -48,6 +48,10 @@ int _printf(const char *format, ...)
 				_putchar(*(sval));
 				count++;
 			}
+			break;
+		case '%':
+			_putchar('%');
+			count++;
 			break;
 		}
 	}
