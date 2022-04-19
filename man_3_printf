@@ -1,26 +1,37 @@
-NAME
-	_printf
+.TH man 3 "19 April 2022 " "1.0" "_printf man page"
+.SH NAME
+_printf
 
-SYNOPSIS
+.SH SYNOPSIS
+ 
+.SH DESCRIPTION
+This function produces output according to a format
+and returns the number of characters printed. The 
+output is written to stdout. 
 
-DESCRIPTION
-	This function produces output according to a format
-	and returns the number of characters printed. The 
-	output is written to stdout. 
+.SH CONVERSION SPECIFIERS
+format is a character string.The following conversion
+pecifiers are handled:
 
-CONVERSION SPECIFIERS
-	format is a character string.The following conversion
-	specifiers are handled:
-	c print a single character
-	s print a string of characters
-	% start a formal specification
-	d print a decimal (base 10) 
-	i print an integer
-	u print an unsigned decimal (base 10)
-	o print a number (base 8)
-	x print a number in hexadecimal (base 16)
-	X print a number in hexadecimal (base 16)
+.IP c
+print a single character
+.IP s
+print a string of characters
+.IP % 
+start a formal specification
+.IP d
+print a decimal (base 10) 
+.IP i
+print an integer
+.IP u 
+print an unsigned decimal (base 10)
+.IP o
+print a number (base 8)
+.IP x
+print a number in hexadecimal (base 16)
+.IP X
+print a number in hexadecimal (base 16)
 
-AUTHERS
+.SH AUTHORS
 	Realeboha Motlamelle
 	Reitumetse Ramoeletsi
