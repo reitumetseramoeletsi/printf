@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
   * _printf - print efe
   * @format: string to print
@@ -13,6 +9,7 @@ int _printf(const char *format, ...)
 	int charCount = 0;
 	char temp = '%';
 	va_list list;
+	unsigned int charSize = sizeof(char);
 
 	if (format == NULL || *format == '\0' ||
 			(*format == temp && *(format + 1) == '\0'))
@@ -22,7 +19,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != temp)
 		{
-			_putchar(*format);
+			write(1, format, charSize);
 			charCount++;
 		}
 		else
@@ -36,7 +33,7 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				_putchar(*format);
+				write(1, format, charSize);
 				charCount++;
 			}
 		}
@@ -53,18 +50,18 @@ int _printf(const char *format, ...)
   */
 int suich(const char *format, va_list list)
 {
-	int charCount = 0, c, argLen = 0;
+	int charCount = 0, c, argLen = 0, charSize = sizeof(char);
 	char *s, temp = '%';
-  
+
 	switch (*format)
 	{
 		case '%':
-			_putchar(temp);
+			write(1, &temp, charSize);
 			charCount++;
 			break;
 		case 'c':
 			c = va_arg(list, int);
-			_putchar(c);
+			write(1, &c, charSize);
 			charCount++;
 			break;
 		case 's':
@@ -72,7 +69,7 @@ int suich(const char *format, va_list list)
 			if (s == NULL)
 				s = "(null)";
 			for (argLen = 0; *s != 0; argLen++, s++, charCount++)
-				_putchar(*s);
+				write(1, s, charSize);
 			break;
 		case 'd':
 			charCount = print_number(list);
@@ -81,7 +78,7 @@ int suich(const char *format, va_list list)
 			charCount = print_number(list);
 			break;
 		default:
-			_putchar(*format);
+			write(1, format, charSize);
 			charCount++;
 			break;
 	}
