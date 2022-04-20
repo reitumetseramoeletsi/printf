@@ -84,7 +84,7 @@ int suich(const char *format, va_list list)
 			break;
 		case 'b':
 			n = va_arg(list, int);
-			unsigned_numtostring(n, 16, buf);
+			unsigned_numtostring(n, 2, buf);
 			for (i = 0; buf[i]; i++, charCount++)
 				_putchar(buf[i]);
 			break;

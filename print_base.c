@@ -18,7 +18,7 @@ void unsigned_numtostring(int num, int base, char *buffer)
 		*buffer++ = '0';
 		*buffer = 0;
 		return;
-
+			
 	}
 
 	for (i = 0; i < 65; i++)
@@ -27,7 +27,6 @@ void unsigned_numtostring(int num, int base, char *buffer)
 	}
 
 	cur = 0;
-
 	while (num)
 	{
 		int digit = num / base;
@@ -40,13 +39,12 @@ void unsigned_numtostring(int num, int base, char *buffer)
 		num /= base;
 
 	}
-
+	
 	for (i = cur - 1; i != 0; i--)
 		*buffer++ = buff[i];
 
 	*buffer++ = buff[0];
 	*buffer = 0;
-
 }
 
 /**
