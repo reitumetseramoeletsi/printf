@@ -26,6 +26,28 @@ int print_number(va_list list)
 }
 
 /**
+  * print_unumber - print an unsigned integer
+  *
+  * @list: list of arguments
+  *
+  * Return: character count
+  */
+
+int print_unumber(va_list list)
+{
+	int x, y = 0, size = 0;
+
+	x = va_arg(list, int);
+
+	if (x < 0)
+	{
+		x = -x;
+	}
+	size = print_nums(x);
+	return (y + size + 1);
+}
+
+/**
   * print_nums - recursion for print_number function
   *
   * @x: parameter
