@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + 1) == 'c'
 			|| *(format + 1) == 's' || *(format + 1) == '%'
-			|| *(format + 1) == 'd' || *(format + 1) == 'i' || *(format + 1) == 'b')
+			|| *(format + 1) == 'd' || *(format + 1) == 'i')
 			{
 				format++;
 				charCount += suich(format, list);
@@ -81,15 +81,6 @@ int suich(const char *format, va_list list)
 			break;
 		case 'i':
 			charCount = print_number(list);
-			break;
-		case 'b':
-			/*
-			n = va_arg(list, int);
-			unsigned_numtostring(n, 2, buf);
-			for (i = 0; buf[i]; i++, charCount++)
-				_putchar(buf[i]);
-			break;*/
-			charCount = print_bin(list);
 			break;
 		default:
 			_putchar(*format);
