@@ -54,9 +54,9 @@ int _printf(const char *format, ...)
   */
 int suich(const char *format, va_list list)
 {
-	int charCount = 0, c, n, i, argLen = 0;
+	int charCount = 0, c, argLen = 0;
 	char *s, temp = '%';
-	char buf[65];
+	/*char buf[65];*/
 
 	switch (*format)
 	{
@@ -83,10 +83,13 @@ int suich(const char *format, va_list list)
 			charCount = print_number(list);
 			break;
 		case 'b':
+			/*
 			n = va_arg(list, int);
 			unsigned_numtostring(n, 2, buf);
 			for (i = 0; buf[i]; i++, charCount++)
 				_putchar(buf[i]);
+			break;*/
+			charCount = print_bin(list);
 			break;
 		default:
 			_putchar(*format);

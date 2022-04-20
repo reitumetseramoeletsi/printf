@@ -12,5 +12,6 @@ void numtostring(int n,int base, char *buffer);
 int print_nums(int x);
 int suich(const char *format, va_list list);
 int _printf(const char *format, ...);
+int print_bin(va_list b);
 
 #endif
