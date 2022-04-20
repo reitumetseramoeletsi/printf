@@ -55,7 +55,7 @@ int suich(const char *format, va_list list)
 {
 	int charCount = 0, c, argLen = 0;
 	char *s, temp = '%';
-
+  
 	switch (*format)
 	{
 		case '%':
