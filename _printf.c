@@ -87,7 +87,7 @@ int suich(const char *format, va_list list)
 			charCount = print_bin(list);
 			break;
 		case 'u':
-			charCount = print_unsigned(list);
+			charCount = print_unsig(list);
 			break;
 		default:
 			_putchar(*format);
