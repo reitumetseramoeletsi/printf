@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 	int charCount = 0;
 	char temp = '%';
 	va_list list;
-	/*unsigned int charSize = sizeof(char);*/
 
 	if (format == NULL || *format == '\0' ||
 			(*format == temp && *(format + 1) == '\0'))
@@ -30,7 +29,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + 1) == 'c'
 			|| *(format + 1) == 's' || *(format + 1) == '%'
-			|| *(format + 1) == 'd' || *(format + 1) == 'i' || *(format + 1) == 'b')
+			|| *(format + 1) == 'd' || *(format + 1) == 'i')
 			{
 				format++;
 				charCount += suich(format, list);
@@ -54,9 +53,8 @@ int _printf(const char *format, ...)
   */
 int suich(const char *format, va_list list)
 {
-	int charCount = 0, c, n, i, argLen = 0;
+	int charCount = 0, c, argLen = 0;
 	char *s, temp = '%';
-	char buf[65];
 
 	switch (*format)
 	{
@@ -81,12 +79,6 @@ int suich(const char *format, va_list list)
 			break;
 		case 'i':
 			charCount = print_number(list);
-			break;
-		case 'b':
-			n = va_arg(list, int);
-			unsigned_numtostring(n, 16, buf);
-			for (i = 0; buf[i]; i++, charCount++)
-				_putchar(buf[i]);
 			break;
 		default:
 			_putchar(*format);
