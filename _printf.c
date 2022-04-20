@@ -31,6 +31,13 @@ int _printf(const char *format, ...)
 				format++;
 				charCount += suich(format, list);
 			}
+			else if (*(format + 1) == 'b'
+			|| *(format + 1) == 'u' || *(format + 1) == 'o'
+			|| *(format + 1) == 'x' || *(format + 1) == 'X')
+			{
+				format++;
+				charCount += suich_2(format, list);
+			}
 			else
 			{
 				write(1, format, charSize);
