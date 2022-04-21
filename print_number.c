@@ -88,7 +88,7 @@ int print_unums(unsigned int x)
 	{
 		y += print_nums(x / 10) + 1;
 	}
-	
+
 	j = x % 10;
 	_putchar(j + '0');
 
