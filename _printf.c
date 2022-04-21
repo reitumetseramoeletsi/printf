@@ -26,8 +26,7 @@ int _printf(const char *format, ...)
 		{
 			if (*(format + 1) == 'c'
 			|| *(format + 1) == 's' || *(format + 1) == '%'
-			|| *(format + 1) == 'd' || *(format + 1) == 'i' 
-			|| *(format + 1) == 'S')
+			|| *(format + 1) == 'd' || *(format + 1) == 'i')
 			{
 				format++;
 				charCount += suich(format, list);
@@ -85,8 +84,6 @@ int suich(const char *format, va_list list)
 		case 'i':
 			charCount = print_number(list);
 			break;
-		case 'S':
-			custom_string(*format, list);
 		default:
 			write(1, format, charSize);
 			charCount++;
