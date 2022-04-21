@@ -6,18 +6,32 @@
   */
 int _printf(const char *format, ...)
 {
-	int charCount = 0;
 	char temp = '%';
 	va_list list;
-	unsigned int charSize = sizeof(char);
 
 	if (format == NULL || *format == '\0' ||
 			(*format == temp && *(format + 1) == '\0'))
 		return (-1);
 	va_start(list, format);
+
+	return (checkspec(format, list));
+}
+
+/**
+ * checkspec - checks specifier
+ * @format: string format to print
+ * @list: pointer to format
+ * Return: int
+ */
+
+int checkspec(const char *format, va_list list)
+{
+	int charCount = 0;
+	unsigned int charSize = sizeof(char);
+
 	while (*format && format)
 	{
-		if (*format != temp)
+		if (*format != '%')
 		{
 			write(1, format, charSize);
 			charCount++;
@@ -49,6 +63,7 @@ int _printf(const char *format, ...)
 	va_end(list);
 	return (charCount);
 }
+
 /**
   * suich - switch for conversion specifiers
   * @format: string to print

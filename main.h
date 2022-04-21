@@ -9,11 +9,14 @@ int _putchar(char c);
 int print_number(va_list list);
 int print_unumber(va_list list);
 int print_nums(int x);
+int print_unums(unsigned int x);
 int suich(const char *format, va_list list);
 int _printf(const char *format, ...);
-char reVal(int num);
+int checkspec(const char *format, va_list list);
+char reVal(unsigned int num);
+char ReVal(unsigned int num);
 void strev(char *str);
-char *fromDeci(char res[], int base, int num);
+char *fromDeci(char res[], unsigned int base, unsigned int num);
 int suich_2(const char *format, va_list list);
 
 #endif

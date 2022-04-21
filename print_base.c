@@ -6,12 +6,26 @@
  * Return: char
  */
 
-char reVal(int num)
+char reVal(unsigned int num)
 {
-	if (num >= 0 && num <= 9)
+	if (num <= 9)
 		return ((char) (num + '0'));
 	else
 		return ((char) (num - 10 + 'a'));
+}
+
+/**
+ * ReVal - convert num to char
+ * @num: number to e converted
+ * Return: char
+ */
+
+char ReVal(unsigned int num)
+{
+	if (num <= 9)
+		return ((char) (num + '0'));
+	else
+		return ((char) (num - 10 + 'A'));
 }
 
 /**
@@ -51,7 +65,7 @@ void strev(char *str)
  * Return: res
  */
 
-char *fromDeci(char res[], int base, int num)
+char *fromDeci(char res[], unsigned int base, unsigned int num)
 {
 	int i = 0;
 
