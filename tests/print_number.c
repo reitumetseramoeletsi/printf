@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
-#include <limits.h>
 
 /**
   * print_number - print an integer
@@ -22,27 +21,6 @@ int print_number(va_list list)
 		_putchar('-');
 		y++;
 	}
-	size = print_nums(x);
-	return (y + size + 1);
-}
-
-/**
-  * print_unumber - print an unsigned integer
-  *
-  * @list: list of arguments
-  *
-  * Return: character count
-  */
-
-int print_unumber(va_list list)
-{
-	int y = 0, size = 0;
-	int x = 0;
-
-	x = va_arg(list, int);
-	if (x > INT_MAX)
-		x = INT_MAX;
-
 	size = print_nums(x);
 	return (y + size + 1);
 }
