@@ -15,5 +15,6 @@ char reVal(int num);
 void strev(char *str);
 char *fromDeci(char res[], int base, int num);
 int suich_2(const char *format, va_list list);
+void custom_string(const char *format, va_list list);
 
 #endif
