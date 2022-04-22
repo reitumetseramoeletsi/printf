@@ -28,9 +28,7 @@ int custom_string(va_list list)
 		ascii = (int)*s;
 		hex = fromDeci(buf, 16, ascii, 'X');
 		while (hex[i] != '\0')
-		{
 			i++;
-		}
 		for (argLen = 0; *hex != '\0'; argLen++, hex++, count++)
 		{
 			if (i < 3)
