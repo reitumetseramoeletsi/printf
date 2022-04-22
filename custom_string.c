@@ -26,7 +26,7 @@ int custom_string(va_list list)
 		_putchar('\\');
 		_putchar('x');
 		ascii = (int)*s;
-		hex = fromDeci(buf, 16, ascii);
+		hex = fromDeci(buf, 16, ascii, 'X');
 		while (hex[i] != '\0')
 		{
 			i++;
