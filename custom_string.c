@@ -21,7 +21,7 @@ int custom_string(va_list list)
 	if (s == NULL)
 		s = "(NULL)";
 
-	if (0 < s[i] || s[i] < 32 || s[i] >= 127)
+	if ((0 < s[i] && s[i] < 32) || s[i] >= 127)
 	{
 		_putchar('\\');
 		_putchar('x');
