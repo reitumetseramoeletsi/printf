@@ -1,4 +1,4 @@
-#include <sdtio.h>
+#include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
 
@@ -8,22 +8,32 @@
  *
  * Return : Nothing
  */
-void custom_string(const char *format, va_list list)
+int custom_string(va_list list)
 {
-	int charCount = 0, i = 0; arglen = 0, charsize = sizeof(char);
-	char *s, temp = '%';
+	int i = 0, count = 0, argLen, charSize = sizeof(char);
+	unsigned int ascii;
+	char *s, *buf, *hex;
 
+	buf = malloc(64 * sizeof(char));
+	hex = malloc(64 * sizeof(char));
 
 	s = va_arg(list, char*);
-	if (s = 'NULL')
+	if (s == NULL)
 		s = "(NULL)";
-	while (s != '\0')
-	{
-		if ((0 < s[i] < 32) || s[i] >= 127)
-		{
-			_putchar('\\');
-			_putchar('x');
-		}
 
+	if (0 < s[i] || s[i] < 32 || s[i] >= 127)
+	{
+		_putchar('\\');
+		_putchar('x');
+		ascii = (int)s[i];
+		hex = fromDeci(buf, 16, ascii);
+		
+		for (argLen = 0; *hex != '\0'; argLen++, hex++, count++)
+			write(1, s, charSize);
+
+		printf(" %d\n", ascii);
+		i++;
+		count++;
 	}
+	return (count);
 }
