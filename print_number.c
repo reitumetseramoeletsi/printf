@@ -37,13 +37,11 @@ int print_number(va_list list)
 int print_unumber(va_list list)
 {
 	int y = 0, size = 0;
-	int x = 0;
+	unsigned int x;
 
-	x = va_arg(list, int);
-	if (x > INT_MAX)
-		x = INT_MAX;
+	x = va_arg(list, unsigned int);
 
-	size = print_nums(x);
+	size = print_unums(x);
 	return (y + size + 1);
 }
 
@@ -72,5 +70,27 @@ int print_nums(int x)
 		j = x % 10;
 		_putchar(j + '0');
 	}
+	return (y);
+}
+
+/**
+  * print_unums - recursion for print_number function
+  *
+  * @x: parameter
+  * Return: byte size
+  */
+
+int print_unums(unsigned int x)
+{
+	int y = 0, j;
+
+	if (x / 10)
+	{
+		y += print_nums(x / 10) + 1;
+	}
+
+	j = x % 10;
+	_putchar(j + '0');
+
 	return (y);
 }
