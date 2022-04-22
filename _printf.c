@@ -86,7 +86,8 @@ int suich(const char *format, va_list list)
 			charCount = print_number(list);
 			break;
 		case 'S':
-			custom_string(*format, list);
+			charCount = custom_string(list);
+			break;
 		default:
 			write(1, format, charSize);
 			charCount++;
