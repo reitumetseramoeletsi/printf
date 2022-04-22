@@ -40,7 +40,8 @@ int checkspec(const char *format, va_list list)
 		{
 			if (*(format + 1) == 'c'
 			|| *(format + 1) == 's' || *(format + 1) == '%'
-			|| *(format + 1) == 'd' || *(format + 1) == 'i')
+			|| *(format + 1) == 'd' || *(format + 1) == 'i'
+			|| *(format + 1) == 'S')
 			{
 				format++;
 				charCount += suich(format, list);
@@ -98,6 +99,9 @@ int suich(const char *format, va_list list)
 			break;
 		case 'i':
 			charCount = print_number(list);
+			break;
+		case 'S':
+			charCount = custom_string(list);
 			break;
 		default:
 			write(1, format, charSize);
