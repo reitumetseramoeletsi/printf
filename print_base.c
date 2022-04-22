@@ -62,17 +62,33 @@ void strev(char *str)
  * @num: number to convert
  * @base:base to convet number to
  * @res:string to be converted
+ * @c: base specifier
  * Return: res
  */
 
-char *fromDeci(char res[], unsigned int base, unsigned int num)
+char *fromDeci(char res[], unsigned int base, unsigned int num, char c)
 {
 	int i = 0;
 
-	while (num > 0)
+	if (c == 'X')
 	{
-		res[i++] = reVal(num % base);
-		num /= base;
+		while (num > 0)
+		{
+			res[i++] = ReVal(num % base);
+			num /= base;
+		}
+	}
+	else
+	{
+
+		while (num > 0)
+		{
+			res[i++] = reVal(num % base);
+			num /= base;
+		}
+
+
+
 	}
 
 	res[i] = '\0';

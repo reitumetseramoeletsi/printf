@@ -16,7 +16,7 @@ int checkspec(const char *format, va_list list);
 char reVal(unsigned int num);
 char ReVal(unsigned int num);
 void strev(char *str);
-char *fromDeci(char res[], unsigned int base, unsigned int num);
+char *fromDeci(char res[], unsigned int base, unsigned int num, char c);
 int suich_2(const char *format, va_list list);
 
 #endif
