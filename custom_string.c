@@ -6,7 +6,7 @@
  * custom_string - prints string and unprintable charecters as \x
  * @list: the alocated string
  *
- * Return : Nothing
+ * Return: return number of elements printed
  */
 int custom_string(va_list list)
 {
@@ -20,16 +20,16 @@ int custom_string(va_list list)
 	s = va_arg(list, char*);
 	if (s == NULL)
 		s = "(NULL)";
-	
-	while(*s != '\0')
+
+	while (*s != '\0')
 	{
-	if ((0 < *s && *s < 32) || *s >= 127)
+	if ((*s > 0 && *s < 32) || *s >= 127)
 	{
 		_putchar('\\');
 		_putchar('x');
 		ascii = (int)*s;
 		hex = fromDeci(buf, 16, ascii);
-		
+
 		for (argLen = 0; *hex != '\0'; argLen++, hex++, count++)
 			write(1, hex, charSize);
 
@@ -42,6 +42,6 @@ int custom_string(va_list list)
 		s++;
 		count++;
 	}
-	}	
+	}
 	return (count);
 }
