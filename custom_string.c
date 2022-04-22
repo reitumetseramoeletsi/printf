@@ -10,7 +10,7 @@
  */
 int custom_string(va_list list)
 {
-	int i = 0, count = 0, argLen, charSize = sizeof(char);
+	int count = 0, argLen, charSize = sizeof(char);
 	unsigned int ascii;
 	char *s, *buf, *hex;
 
@@ -20,20 +20,28 @@ int custom_string(va_list list)
 	s = va_arg(list, char*);
 	if (s == NULL)
 		s = "(NULL)";
-
-	if ((0 < s[i] && s[i] < 32) || s[i] >= 127)
+	
+	while(*s != '\0')
+	{
+	if ((0 < *s && *s < 32) || *s >= 127)
 	{
 		_putchar('\\');
 		_putchar('x');
-		ascii = (int)s[i];
+		ascii = (int)*s;
 		hex = fromDeci(buf, 16, ascii);
 		
 		for (argLen = 0; *hex != '\0'; argLen++, hex++, count++)
-			write(1, s, charSize);
+			write(1, hex, charSize);
 
-		printf(" %d\n", ascii);
-		i++;
+		count++;
+		s++;
+	}
+	else
+	{
+		_putchar(*s);
+		s++;
 		count++;
 	}
+	}	
 	return (count);
 }
