@@ -12,30 +12,31 @@ int suich_2(const char *format, va_list list)
 	char *s, *buf;
 
 	buf = (char *)malloc(64 * sizeof(char));
-
 	switch (*format)
 	{
 		case 'b':
 			num = va_arg(list, unsigned int);
-			s = fromDeci(buf, 2, num);
+			s = fromDeci(buf, 2, num, 'b');
 			for (argLen = 0; *s != '\0'; argLen++, s++, charCount++)
 				write(1, s, charSize);
-			free(buf);
 			break;
 		case 'o':
 			num = va_arg(list, unsigned int);
-			s = fromDeci(buf, 8, num);
+			s = fromDeci(buf, 8, num, 'o');
 			for (argLen = 0; *s != '\0'; argLen++, s++, charCount++)
 				write(1, s, charSize);
-			free(buf);
 			break;
 		case 'x':
-		case 'X':
 			num = va_arg(list, unsigned int);
-			s = fromDeci(buf, 16, num);
+			s = fromDeci(buf, 16, num, 'x');
 			for (argLen = 0; *s != '\0'; argLen++, s++, charCount++)
 				write(1, s, charSize);
-			free(buf);
+			break;
+		case 'X':
+			num = va_arg(list, unsigned int);
+			s = fromDeci(buf, 16, num, 'X');
+			for (argLen = 0; *s != '\0'; argLen++, s++, charCount++)
+				write(1, s, charSize);
 			break;
 		case 'u':
 			charCount = print_unumber(list);
@@ -45,5 +46,6 @@ int suich_2(const char *format, va_list list)
 			charCount++;
 			break;
 	}
+	free(buf);
 	return (charCount);
 }
