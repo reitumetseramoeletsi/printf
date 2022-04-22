@@ -18,6 +18,6 @@ char ReVal(unsigned int num);
 void strev(char *str);
 char *fromDeci(char res[], unsigned int base, unsigned int num);
 int suich_2(const char *format, va_list list);
-void custom_string(const char *format, va_list list);
+int custom_string(va_list list);
 
 #endif
